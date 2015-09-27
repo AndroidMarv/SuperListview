@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Superlistview by AndroidMarv</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Superlistview</h1>
+        <p>Way more than just a listview</p>
+        <p class="view"><a href="https://github.com/AndroidMarv/SuperListview">View the Project on GitHub <small>AndroidMarv/SuperListview</small></a></p>
+        <ul>
+          <li><a href="https://github.com/AndroidMarv/SuperListview/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/AndroidMarv/SuperListview/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/AndroidMarv/SuperListview">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="superlistview" class="anchor" href="#superlistview" aria-hidden="true"><span class="octicon octicon-link"></span></a>SuperListview</h1>
+
+<p><strong><em>Pull requests are answered with all my love and a cookie.</em></strong></p>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>This library is making listview way more easy to use. No need to embed the listview in a framelayout to add the progressbar or the emptyview. <strong>It's all right here</strong>.</p>
+
+<p>Features built in:</p>
+
+<ul>
+<li>ProgressBar while adapter hasn't been set</li>
+<li>EmptyView if adapter is empty</li>
+<li>SwipeRefreshLayout (Google's one)</li>
+<li>Infinite scrolling, when you reach the X last item, load more of them.</li>
+<li>Swipe To Dismiss for the SuperListView (doesn't make sense for a gridview) (Thanks <a href="https://github.com/romannurik/Android-SwipeToDismiss">Roman Nurik</a>)</li>
+<li>GridView with SuperGridView</li>
+<li>Open to suggestions (and Pull Request ofc) for others :)</li>
+</ul>
+
+<h4>
+<a id="sample-apk-pull-to-add-item-to-the-adapter" class="anchor" href="#sample-apk-pull-to-add-item-to-the-adapter" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/dommerq/SuperListview/blob/dev/sample.apk">Sample apk</a> (pull to add item to the adapter)</h4>
+
+<h2>
+<a id="integration" class="anchor" href="#integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integration</h2>
+
+<p>Just add it to you dependencies</p>
+
+<p>For release version:</p>
+
+<pre><code>    compile 'com.quentindommerc.superlistview:library:1.5.2'
+</code></pre>
+
+<p>For snapshot version:</p>
+
+<pre><code>    https://oss.sonatype.org/content/repositories/snapshots/
+</code></pre>
+
+<pre><code>    compile 'com.quentindommerc.superlistview:library:1.5.1-SNAPSHOT'
+</code></pre>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<ul>
+<li>  Use directly SuperListview:</li>
+</ul>
+
+<div class="highlight highlight-text-xml"><pre>   &lt;<span class="pl-ent">com</span>.quentindommerc.superlistview.SuperListview
+            <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">superlistview</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.android.com/apk/res-auto<span class="pl-pds">"</span></span>
+            <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>@+id/list<span class="pl-pds">"</span></span>
+            <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_width</span>=<span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+            <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_height</span>=<span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__listClipToPadding</span>=<span class="pl-s"><span class="pl-pds">"</span>false<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__listDivider</span>=<span class="pl-s"><span class="pl-pds">"</span>@android:color/transparent<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__listDividerHeight</span>=<span class="pl-s"><span class="pl-pds">"</span>10dp<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__listPadding</span>=<span class="pl-s"><span class="pl-pds">"</span>10dp<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__empty</span>=<span class="pl-s"><span class="pl-pds">"</span>@layout/emptyview<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__scrollbarStyle</span>=<span class="pl-s"><span class="pl-pds">"</span>outsideOverlay<span class="pl-pds">"</span></span> &gt;
+    &lt;/<span class="pl-ent">com</span>.quentindommerc.superlistview.SuperListview&gt;</pre></div>
+
+<h3>
+<a id="for-gridview" class="anchor" href="#for-gridview" aria-hidden="true"><span class="octicon octicon-link"></span></a>For Gridview</h3>
+
+<div class="highlight highlight-text-xml"><pre>    &lt;<span class="pl-ent">com</span>.quentindommerc.superlistview.SuperGridview
+            <span class="pl-e">xmlns</span><span class="pl-e">:</span><span class="pl-e">superlistview</span>=<span class="pl-s"><span class="pl-pds">"</span>http://schemas.android.com/apk/res-auto<span class="pl-pds">"</span></span>
+            <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>@+id/list<span class="pl-pds">"</span></span>
+            <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_width</span>=<span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+            <span class="pl-e">android</span><span class="pl-e">:</span><span class="pl-e">layout_height</span>=<span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__listClipToPadding</span>=<span class="pl-s"><span class="pl-pds">"</span>false<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__listDivider</span>=<span class="pl-s"><span class="pl-pds">"</span>@android:color/transparent<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__listDividerHeight</span>=<span class="pl-s"><span class="pl-pds">"</span>10dp<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__listPadding</span>=<span class="pl-s"><span class="pl-pds">"</span>10dp<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__empty</span>=<span class="pl-s"><span class="pl-pds">"</span>@layout/emptyview<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">supergv__columns</span>=<span class="pl-s"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">supergv__verticalSpacing</span>=<span class="pl-s"><span class="pl-pds">"</span>10dp<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">supergv__horizontalSpacing</span>=<span class="pl-s"><span class="pl-pds">"</span>10dp<span class="pl-pds">"</span></span>
+            <span class="pl-e">superlistview</span><span class="pl-e">:</span><span class="pl-e">superlv__scrollbarStyle</span>=<span class="pl-s"><span class="pl-pds">"</span>outsideOverlay<span class="pl-pds">"</span></span> &gt;
+    &lt;/<span class="pl-ent">com</span>.quentindommerc.superlistview.SuperGridview&gt;</pre></div>
+
+<ul>
+<li>  Current Attributes supported:</li>
+</ul>
+
+<div class="highlight highlight-text-xml"><pre>         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listSelector<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>reference<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__empty<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>reference<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__moreProgress<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>reference<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__progress<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>reference<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listDivider<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>reference<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listDividerHeight<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>dimension<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listClipToPadding<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>boolean<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listPadding<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>dimension<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listPaddingTop<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>dimension<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listPaddingBottom<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>dimension<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listPaddingLeft<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>dimension<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__listPaddingRight<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>dimension<span class="pl-pds">"</span></span>/&gt;
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv__scrollbarStyle<span class="pl-pds">"</span></span>&gt;
+             &lt;<span class="pl-ent">flag</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>insideOverlay<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>0x0<span class="pl-pds">"</span></span>/&gt;
+             &lt;<span class="pl-ent">flag</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>insideInset<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>0x01000000<span class="pl-pds">"</span></span>/&gt;
+             &lt;<span class="pl-ent">flag</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>outsideOverlay<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>0x02000000<span class="pl-pds">"</span></span>/&gt;
+             &lt;<span class="pl-ent">flag</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>outsideInset<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>0x03000000<span class="pl-pds">"</span></span>/&gt;
+         &lt;/<span class="pl-ent">attr</span>&gt;
+
+         <span class="pl-c">&lt;!-- Layout to build a superList. Default values are  @layout/view_progress_listview for a list and</span>
+<span class="pl-c">          @layout/view_progress_gridview for a grid--&gt;</span>
+         &lt;<span class="pl-ent">attr</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>superlv_mainLayoutID<span class="pl-pds">"</span></span> <span class="pl-e">format</span>=<span class="pl-s"><span class="pl-pds">"</span>reference<span class="pl-pds">"</span></span>/&gt;
+</pre></div>
+
+<h2>
+<a id="superlistview-java-usage" class="anchor" href="#superlistview-java-usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>SuperListView Java Usage</h2>
+
+<div class="highlight highlight-source-java"><pre>    list<span class="pl-k">.</span>setRefreshListener(<span class="pl-k">new</span> SwipeRefreshLayout.OnRefreshListener {
+      <span class="pl-k">@Override</span>
+      <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onRefresh</span>() {
+          <span class="pl-c">// Do your refresh</span>
+      });
+
+    <span class="pl-c">// when there is only 10 items to see in the list, this is triggered</span>
+    list.<span class="pl-en">setupMoreListener</span>(<span class="pl-v">new</span> <span class="pl-smi">OnMoreListener</span>() {
+      @<span class="pl-smi">Override</span>
+      <span class="pl-k">public</span> <span class="pl-k">void</span> onMoreAsked(<span class="pl-k">int</span> numberOfItems, <span class="pl-k">int</span> numberBeforeMore, <span class="pl-k">int</span> currentItemPos) {
+        <span class="pl-c">// Fetch more from Api or DB</span>
+      }}, <span class="pl-c1">10</span>);
+
+
+    <span class="pl-c">// the 2nd parameters is true if you want SuperListView to automatically</span>
+    <span class="pl-c">// delete the item from the listview or false if you don't</span>
+    list.<span class="pl-en">setupSwipeToDismiss</span>(<span class="pl-v">new</span> <span class="pl-smi">SwipeDismissListViewTouchListener</span>.<span class="pl-smi">DismissCallbacks</span>() {
+      @<span class="pl-smi">Override</span>
+      <span class="pl-k">public</span> <span class="pl-k">boolean</span> canDismiss(<span class="pl-k">int</span> position) {
+        <span class="pl-k">return</span> <span class="pl-c1">true</span>
+      }
+
+      @<span class="pl-smi">Override</span>
+      <span class="pl-k">public</span> <span class="pl-k">void</span> onDismiss(<span class="pl-smi">ListView</span> listView, <span class="pl-k">int</span>[] reverseSortedPositions) {
+        <span class="pl-c">// Do your stuff like call an Api or update your db</span>
+      }}, <span class="pl-c1">true</span>);
+</pre></div>
+
+<h4>
+<a id="sample-java" class="anchor" href="#sample-java" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="https://github.com/dommerq/SuperListview/blob/dev/Sample/src/main/java/com/quentindommerc/superlistview/sample/ListSample.java">Sample java</a>
+</h4>
+
+<h2>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h2>
+
+<p>Arasthel <a href="https://github.com/Arasthel">Github</a></p>
+
+<p>Gabriele Mariotti <a href="https://github.com/gabrielemariotti">Github</a>, <a href="https://plus.google.com/+GabrieleMariotti/posts">Google+</a></p>
+
+<p>Kochkin Artem <a href="https://github.com/kolipass">Github</a></p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<pre><code>Copyright (c) 2014 Quentin Dommerc
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Come on, don't tell me you read that.
+</code></pre>
+
+<p><a href="https://github.com/igrigorik/ga-beacon"><img src="https://ga-beacon.appspot.com/UA-40136896-2/SuperListview/readme" alt="Analytics"></a></p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/AndroidMarv">AndroidMarv</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
